@@ -9,3 +9,4 @@ export const employeeRouter = Router();
 const getEmployeeHandler = () => container.resolve(EmployeeHandler);
 
 employeeRouter.get('/:id', (req, res,next) => getEmployeeHandler().findUserById(req, res,next));
+employeeRouter.post('/:id', (req, res,next) => getEmployeeHandler().findUserById(req, res,next));

@@ -4,6 +4,8 @@ import { Command } from 'commander';
 import { Server } from './console/server';
 import { migrateCommand } from './console/migrate';
 import { createMigrationCommand } from './console/create-migration';
+import {departmentSeederCommand} from "@/console/department.seeder";
+import {positionSeederCommand} from "@/console/position.seeder";
 
 const program = new Command();
 
@@ -15,6 +17,8 @@ program
 // Add commands
 program.addCommand(migrateCommand);
 program.addCommand(createMigrationCommand);
+program.addCommand(departmentSeederCommand);
+program.addCommand(positionSeederCommand);
 
 // Add server command
 program

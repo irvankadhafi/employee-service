@@ -16,7 +16,7 @@ export class Employee {
     @PrimaryGeneratedColumn()
     id!: number;
 
-    @Column({ unique: true })
+    @Column({ unique: true, name: 'user_id' })
     userId!: number; // Menyimpan user_id dari auth-service
 
     @Column()

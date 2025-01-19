@@ -14,6 +14,10 @@ import {EmployeeUseCaseImpl} from "@/usecase/employee.usecase";
 import {EmployeeUseCase} from "@/domain/usecases";
 
 import { AuthServiceClientWrapper } from '@/infrastructure/grpc/authServiceClient';
+import {DepartmentRepository} from "@/domain/repositories/department.repository";
+import {DepartmentRepositoryImpl} from "@/repository/department.repository";
+import {PositionRepository} from "@/domain/repositories/position.repository";
+import {PositionRepositoryImpl} from "@/repository/position.repository";
 
 export class Server {
     private readonly httpServer: express.Application;
@@ -121,6 +125,8 @@ export async function setupContainer(dataSource: DataSource, redis: Redis): Prom
 
     // Register repositories and use cases
     container.registerSingleton<EmployeeRepository>('EmployeeRepository', EmployeeRepositoryImpl);
+    container.registerSingleton<DepartmentRepository>('DepartmentRepository', DepartmentRepositoryImpl);
+    container.registerSingleton<PositionRepository>('PositionRepository', PositionRepositoryImpl);
     container.registerSingleton<EmployeeUseCase>('EmployeeUseCase', EmployeeUseCaseImpl);
     container.registerSingleton<AuthServiceClientWrapper>('AuthServiceClientWrapper', AuthServiceClientWrapper);
 }
